@@ -99,7 +99,12 @@ qqPlot(fit$residuals)
 acf(fit$residuals)
 pacf(fit$residuals)
 
-ts.diag(fit$residuals)
+
+jpeg(filename = "fig10.jpeg",width=2000,height=2000,res=350)
+ts.diag(fit$residuals,lag=15)
+dev.off()
+
+Box.test(fit$residuals,type="Ljung",lag=15)
 
 
 skewness(fit$residuals)
